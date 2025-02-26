@@ -2,7 +2,7 @@
 ## My Neovim Config
 
 ### Requirements
-- Neovim 0.8+
+- Neovim 0.9+
 - Node.js
 
 ### Installation
