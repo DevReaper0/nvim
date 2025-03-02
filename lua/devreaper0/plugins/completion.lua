@@ -19,7 +19,7 @@ return {
     ---@type blink.cmp.Config
     opts = {
       snippets = {
-        preset = 'luasnip',
+        preset = "luasnip",
       },
       completion = {
         list = {
@@ -80,6 +80,9 @@ return {
         ghost_text = {
           enabled = true,
         },
+      },
+      keymap = {
+        preset = "super-tab",
       },
       signature = {
         enabled = true,
