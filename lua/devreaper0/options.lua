@@ -12,7 +12,6 @@ vim.opt.smartindent = true
 vim.opt.cursorline = true
 
 vim.opt.wrap = false
-
 vim.opt.backup = false
 vim.opt.undofile = true
 
@@ -23,5 +22,7 @@ vim.opt.termguicolors = true
 
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
+
+vim.opt.showcmdloc = "statusline"
 
 vim.opt.updatetime = 300

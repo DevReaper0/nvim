@@ -1,0 +1,19 @@
+vim.api.nvim_create_autocmd('BufReadPost', {
+  pattern = '*',
+  desc = "Return to exit position",
+  callback = function()
+    if vim.fn.line("'\"") > 0 and vim.fn.line("'\"") <= vim.fn.line("$") then
+      vim.cmd('normal! g`"zvzz')
+    end
+  end
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "lazy",
+  desc = "Close Lazy panel with <esc>",
+  callback = function()
+    vim.keymap.set("n", "<Esc>", function()
+      vim.api.nvim_win_close(0, false)
+    end, { buffer = true, nowait = true })
+  end,
+})

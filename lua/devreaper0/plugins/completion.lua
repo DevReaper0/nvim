@@ -1,29 +1,31 @@
 return {
   {
-    "folke/lazydev.nvim",
-    ft = "lua",
-    opts = {
-      library = {
-        { path = "${3rd}/luv/library", words = { "vim%.uv" } }
-      }
-    }
+    "xzbdmw/colorful-menu.nvim",
+    lazy = true,
+  },
+  {
+    "onsails/lspkind.nvim",
+    lazy = true,
+  },
+  {
+    "nvim-tree/nvim-web-devicons",
+    lazy = true,
   },
   {
     "saghen/blink.cmp",
-    version = '*',
-    dependencies = {
-      { 'L3MON4D3/LuaSnip', version = 'v2.*' },
-      'echasnovski/mini.icons'
-    },
+    version = "*",
+    event = "InsertEnter",
+    ---@module 'blink.cmp'
+    ---@type blink.cmp.Config
     opts = {
       snippets = {
-        preset = 'luasnip'
+        preset = 'luasnip',
       },
       completion = {
         list = {
           selection = {
             preselect = true,
-            auto_insert = function(ctx) return ctx.mode == 'cmdline' end
+            auto_insert = false,
           }
         },
         accept = {
@@ -31,27 +33,56 @@ return {
         },
         menu = {
           draw = {
+            columns = { { "kind_icon" }, { "label", gap = 1 } },
             components = {
               kind_icon = {
                 ellipsis = false,
                 text = function(ctx)
-                  local kind_icon, _, _ = require('mini.icons').get('lsp', ctx.kind)
-                  return kind_icon
+                  local icon = ctx.kind_icon
+                  if vim.tbl_contains({ "Path" }, ctx.source_name) then
+                    local dev_icon, _ = require("nvim-web-devicons").get_icon(ctx.label)
+                    if dev_icon then
+                      icon = dev_icon
+                    end
+                  else
+                    icon = require("lspkind").symbolic(ctx.kind, {
+                      mode = "symbol",
+                    })
+                  end
+
+                  return icon .. ctx.icon_gap
                 end,
                 highlight = function(ctx)
-                  local _, hl, _ = require('mini.icons').get('lsp', ctx.kind)
+                  local hl = ctx.kind_hl
+                  if vim.tbl_contains({ "Path" }, ctx.source_name) then
+                    local dev_icon, dev_hl = require("nvim-web-devicons").get_icon(ctx.label)
+                    if dev_icon then
+                      hl = dev_hl
+                    end
+                  end
                   return hl
-                end
-              }
-            }
-          }
+                end,
+              },
+              label = {
+                text = function(ctx)
+                  return require("colorful-menu").blink_components_text(ctx)
+                end,
+                highlight = function(ctx)
+                  return require("colorful-menu").blink_components_highlight(ctx)
+                end,
+              },
+            },
+          },
+        },
+        documentation = {
+          auto_show = true,
         },
         ghost_text = {
-          enabled = true
-        }
+          enabled = true,
+        },
       },
       signature = {
-        enabled = true
+        enabled = true,
       },
       sources = {
         default = { "lazydev", "lsp", "path", "snippets", "buffer" },
@@ -59,19 +90,14 @@ return {
           lazydev = {
             name = "LazyDev",
             module = "lazydev.integrations.blink",
-            score_offset = 100
-          }
-        }
+            score_offset = 100,
+          },
+        },
       },
       cmdline = {
-        keymap = {
-          preset = 'default',
-
-          --['<Tab>'] = { 'select_next', 'show', 'fallback' },
-          --['<S-Tab>'] = { 'select_prev', 'show', 'fallback' },
-        }
-      }
+        enabled = false,
+      },
     },
-    opts_extend = { "sources.default" }
-  }
+    opts_extend = { "sources.default" },
+  },
 }

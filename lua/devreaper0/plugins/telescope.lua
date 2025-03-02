@@ -1,21 +1,17 @@
 return {
-  "nvim-telescope/telescope.nvim",
-  dependencies = {
-    "nvim-lua/plenary.nvim",
-    "nvim-telescope/telescope-ui-select.nvim"
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "debugloop/telescope-undo.nvim",
+      "folke/noice.nvim",
+    },
+    cond = not vim.g.vscode,
+    cmd = "Telescope",
+    config = function()
+      require("telescope").setup({})
+      require("telescope").load_extension("undo")
+      require("telescope").load_extension("noice")
+    end,
   },
-  config = function()
-    if vim.g.vscode then
-      return
-    end
-
-    require("telescope").setup({
-      extensions = {
-        ["ui-select"] = {
-          require("telescope.themes").get_dropdown({})
-        }
-      }
-    })
-    require("telescope").load_extension("ui-select")
-  end
 }
