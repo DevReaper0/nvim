@@ -6,7 +6,7 @@ return {
     "folke/noice.nvim",
   },
   cond = not vim.g.vscode,
-  cmd = "Telescope",
+  event = { "BufReadPost", "BufNewFile" },
   config = function()
     require("telescope").setup({})
     require("telescope").load_extension("undo")
