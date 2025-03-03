@@ -1,14 +1,14 @@
 return {
   {
-    "xzbdmw/colorful-menu.nvim",
-    lazy = true,
-  },
-  {
     "onsails/lspkind.nvim",
     lazy = true,
   },
   {
     "nvim-tree/nvim-web-devicons",
+    lazy = true,
+  },
+  {
+    "xzbdmw/colorful-menu.nvim",
     lazy = true,
   },
   {
@@ -44,7 +44,7 @@ return {
                     if dev_icon then
                       icon = dev_icon
                     end
-                  else
+                  elseif ctx.kind ~= "Copilot" then
                     icon = require("lspkind").symbolic(ctx.kind, {
                       mode = "symbol",
                     })
@@ -88,8 +88,14 @@ return {
         enabled = true,
       },
       sources = {
-        default = { "lazydev", "lsp", "path", "snippets", "buffer" },
+        default = { "copilot", "lazydev", "lsp", "path", "snippets", "buffer" },
         providers = {
+          copilot = {
+            name = "copilot",
+            module = "blink-copilot",
+            score_offset = 100,
+            async = true,
+          },
           lazydev = {
             name = "LazyDev",
             module = "lazydev.integrations.blink",

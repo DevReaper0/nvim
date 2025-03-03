@@ -1,10 +1,10 @@
 return {
   "folke/noice.nvim",
-  event = "VeryLazy",
   dependencies = {
     "MunifTanjim/nui.nvim",
   },
   cond = not vim.g.vscode,
+  event = "VeryLazy",
   opts = {
     lsp = {
       override = {
