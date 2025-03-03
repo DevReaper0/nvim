@@ -7,10 +7,6 @@ return {
     dashboard = {
       enabled = not vim.g.vscode,
       preset = {
-        pick = function(cmd, opts)
-          cmd = cmd or "files"
-          return require("telescope.builtin")[cmd == "files" and "find_files" or cmd](opts)
-        end,
         keys = {
           { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
           { icon = " ", key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
