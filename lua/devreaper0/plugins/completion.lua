@@ -14,6 +14,7 @@ return {
   {
     "saghen/blink.cmp",
     version = "*",
+    cond = not vim.g.vscode,
     event = "InsertEnter",
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
