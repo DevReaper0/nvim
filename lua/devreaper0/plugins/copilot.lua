@@ -2,8 +2,8 @@ return {
   {
     "zbirenbaum/copilot.lua",
     cond = not vim.g.vscode,
-    cmd = "Copilot",
     event = "InsertEnter",
+    cmd = "Copilot",
     opts = {
       suggestion = { enabled = false },
       panel = { enabled = false },
@@ -25,8 +25,8 @@ return {
     },
     build = vim.loop.os_uname().sysname ~= "Windows_NT" and "make tiktoken" or false,
     cond = not vim.g.vscode,
-    cmd = { "CopilotChat", "CopilotChatToggle", "CopilotChatOpen" },
     event = { "BufReadPost", "BufNewFile" },
+    cmd = { "CopilotChat", "CopilotChatToggle", "CopilotChatOpen" },
     opts = {},
   },
 }
