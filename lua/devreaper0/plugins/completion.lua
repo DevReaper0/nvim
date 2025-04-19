@@ -8,6 +8,7 @@ return {
     lazy = true,
   },
   {
+
     "xzbdmw/colorful-menu.nvim",
     lazy = true,
   },
