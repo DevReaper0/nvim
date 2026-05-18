@@ -36,6 +36,8 @@ return {
 
 				"rust_analyzer",
 
+				"clang-format",
+
 				"bashls",
 				"shfmt",
 				"shellcheck",
@@ -60,12 +62,13 @@ return {
 				"dockerls",
 
 				"clangd",
+				"neocmake",
 
 				"arduino_language_server",
 
 				"jdtls",
 
-        "hyprls",
+				"hyprls",
 			},
 		},
 	},

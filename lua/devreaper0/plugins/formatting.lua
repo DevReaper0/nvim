@@ -45,6 +45,7 @@ return {
 				}
 			end,
 			rust = { "rustfmt" },
+			c = { "clang_format" },
 			bash = { "shfmt", "shellcheck" },
 			zsh = { "shfmt", "shellcheck" },
 			sh = { "shfmt", "shellcheck" },
