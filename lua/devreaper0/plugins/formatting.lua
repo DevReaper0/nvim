@@ -31,6 +31,15 @@ return {
 			biome = {
 				require_cwd = true,
 			},
+			shfmt = {
+				prepend_args = function(_, ctx)
+					if vim.bo[ctx.buf].filetype == "zsh" then
+						return { "-ln", "zsh" }
+					else
+						return {}
+					end
+				end,
+			},
 		},
 		formatters_by_ft = {
 			lua = { "stylua" },
