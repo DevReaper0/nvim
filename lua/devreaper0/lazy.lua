@@ -17,7 +17,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("devreaper0.plugins", {
   install = {
-    colorscheme = { "catppuccin", "habamax" },
+    colorscheme = { "emberwood", "catppuccin", "habamax" },
   },
   ui = {
     border = "rounded",
