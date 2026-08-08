@@ -1,21 +1,36 @@
+-- return {
+--   "EmberwoodTheme/nvim",
+--   -- dir = "~/Code/Emberwood/nvim",
+--   name = "emberwood",
+--   -- dependencies = {
+--   -- 	"catppuccin/nvim",
+--   -- 	name = "catppuccin",
+--   -- },
+--   priority = 1000,
+--   config = function()
+--     require("emberwood").setup({
+--       ctp_options = {
+--         show_end_of_buffer = true,
+--         term_colors = true,
+--         auto_integrations = true,
+--       },
+--     })
+--
+--     vim.cmd("colorscheme emberwood")
+--   end,
+-- }
 return {
-  "EmberwoodTheme/nvim",
-  -- dir = "~/Code/Emberwood/nvim",
-  name = "emberwood",
-  -- dependencies = {
-  -- 	"catppuccin/nvim",
-  -- 	name = "catppuccin",
-  -- },
+  "catppuccin/nvim",
+  name = "catppuccin",
   priority = 1000,
   config = function()
-    require("emberwood").setup({
-      ctp_options = {
-        show_end_of_buffer = true,
-        term_colors = true,
-        auto_integrations = true,
-      },
+    require("catppuccin").setup({
+      flavour = "macchiato",
+      show_end_of_buffer = true,
+      term_colors = true,
+      auto_integrations = true,
     })
 
-    vim.cmd("colorscheme emberwood")
+    vim.cmd("colorscheme catppuccin-nvim")
   end,
 }
