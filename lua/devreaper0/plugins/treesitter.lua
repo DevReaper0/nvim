@@ -1,5 +1,5 @@
 return {
-	"arborist-ts/arborist.nvim",
-	event = { "BufReadPre", "BufNewFile" },
-	opts = {},
+  "arborist-ts/arborist.nvim",
+  event = { "BufReadPre", "BufNewFile" },
+  opts = {},
 }

@@ -2,6 +2,7 @@ return {
   "folke/snacks.nvim",
   priority = 1000,
   lazy = false,
+  -- stylua: ignore
   keys = {
     { "<leader>e",  function() Snacks.explorer() end,       desc = "File Explorer" },
     { "<leader>ff", function() Snacks.picker.files() end,   desc = "Find Files" },

@@ -1,7 +1,12 @@
 return {
   "folke/which-key.nvim",
   event = "VeryLazy",
-  opts = {},
+  opts = {
+    spec = {
+      { "<C-s>", proxy = "<C-w>", group = "window" },
+      { "<leader>w", proxy = "<C-w>", group = "window" },
+    },
+  },
   keys = {
     {
       "<leader>?",

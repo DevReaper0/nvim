@@ -1,32 +1,32 @@
-local group = vim.api.nvim_create_augroup('devreaper0', {})
+local group = vim.api.nvim_create_augroup("devreaper0", {})
 
-vim.api.nvim_create_autocmd('BufReadPost', {
+vim.api.nvim_create_autocmd("BufReadPost", {
   group = group,
-  pattern = '*',
+  pattern = "*",
   desc = "Return to exit position",
   callback = function()
     if vim.fn.line("'\"") > 0 and vim.fn.line("'\"") <= vim.fn.line("$") then
       vim.cmd('normal! g`"zvzz')
     end
-  end
+  end,
 })
 
-vim.api.nvim_create_autocmd('CmdlineEnter', {
+vim.api.nvim_create_autocmd("CmdlineEnter", {
   group = group,
-  pattern = '/',
+  pattern = "/",
   desc = "Highlight all matched strings while typing a search command",
   callback = function()
-    vim.cmd('set hlsearch')
-  end
+    vim.cmd("set hlsearch")
+  end,
 })
 
-vim.api.nvim_create_autocmd('CmdlineLeave', {
+vim.api.nvim_create_autocmd("CmdlineLeave", {
   group = group,
-  pattern = '/',
+  pattern = "/",
   desc = "Highlight all matched strings while typing a search command",
   callback = function()
-    vim.cmd('set nohlsearch')
-  end
+    vim.cmd("set nohlsearch")
+  end,
 })
 
 vim.api.nvim_create_autocmd("FileType", {

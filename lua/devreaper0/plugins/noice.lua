@@ -14,7 +14,7 @@ return {
       },
     },
     presets = {
-      command_palette = true,       -- Position the cmdline and popupmenu together.
+      command_palette = true, -- Position the cmdline and popupmenu together.
       long_message_to_split = true, -- Long messages will be sent to a split.
     },
   },

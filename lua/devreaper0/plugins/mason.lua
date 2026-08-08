@@ -1,75 +1,75 @@
 return {
-	{
-		"williamboman/mason.nvim",
-		event = { "BufReadPre", "BufNewFile" },
-		opts = {
-			ui = {
-				icons = {
-					package_installed = "✓",
-					package_pending = "➜",
-					package_uninstalled = "✗",
-				},
-			},
-		},
-	},
-	{
-		"WhoIsSethDaniel/mason-tool-installer.nvim",
-		dependencies = {
-			"williamboman/mason.nvim",
-		},
-		event = { "BufReadPre", "BufNewFile" },
-		opts = {
-			ensure_installed = {
-				"biome",
-				"prettierd", -- For everything not yet supported by Biome
-				-- "harper_ls",
+  {
+    "williamboman/mason.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    opts = {
+      ui = {
+        icons = {
+          package_installed = "✓",
+          package_pending = "➜",
+          package_uninstalled = "✗",
+        },
+      },
+    },
+  },
+  {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    dependencies = {
+      "williamboman/mason.nvim",
+    },
+    event = { "BufReadPre", "BufNewFile" },
+    opts = {
+      ensure_installed = {
+        "biome",
+        "prettierd", -- For everything not yet supported by Biome
+        -- "harper_ls",
 
-				"lua_ls",
-				"stylua",
+        "lua_ls",
+        "stylua",
 
-				"gopls",
-				"golangci-lint",
-				"gofumpt",
+        "gopls",
+        "golangci-lint",
+        "gofumpt",
 
-				"pylsp",
-				"ruff",
+        "pylsp",
+        "ruff",
 
-				"rust_analyzer",
+        "rust_analyzer",
 
-				"clang-format",
+        "clang-format",
 
-				"bashls",
-				"shfmt",
-				"shellcheck",
+        "bashls",
+        "shfmt",
+        "shellcheck",
 
-				"sqlfluff",
+        "sqlfluff",
 
-				"emmet_ls",
-				"html",
-				"tailwindcss",
-				"cssls",
-				"stylelint",
-				"ts_ls",
-				"denols",
+        "emmet_ls",
+        "html",
+        "tailwindcss",
+        "cssls",
+        "stylelint",
+        "ts_ls",
+        "denols",
 
-				"jsonls",
-				"yamlls",
-				"lemminx",
+        "jsonls",
+        "yamlls",
+        "lemminx",
 
-				"marksman",
-				"markdownlint",
+        "marksman",
+        "markdownlint",
 
-				"dockerls",
+        "dockerls",
 
-				"clangd",
-				"neocmake",
+        "clangd",
+        "neocmake",
 
-				"arduino_language_server",
+        "arduino_language_server",
 
-				"jdtls",
+        "jdtls",
 
-				"hyprls",
-			},
-		},
-	},
+        "hyprls",
+      },
+    },
+  },
 }

@@ -1,4 +1,4 @@
 return {
-	"folke/ts-comments.nvim",
-	event = { "BufReadPost", "BufNewFile" },
+  "folke/ts-comments.nvim",
+  event = { "BufReadPost", "BufNewFile" },
 }
