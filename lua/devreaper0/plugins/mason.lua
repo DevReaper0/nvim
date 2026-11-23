@@ -55,6 +55,7 @@ return {
         "jsonls",
         "yamlls",
         "lemminx",
+        "just",
 
         "marksman",
         "markdownlint",

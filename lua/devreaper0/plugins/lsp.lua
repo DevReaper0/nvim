@@ -7,6 +7,7 @@ return {
   },
   event = { "BufReadPre", "BufNewFile" },
   config = function()
+    vim.highlight.priorities.semantic_tokens = 95
     vim.diagnostic.config({ virtual_text = true })
 
     local capabilities = require("blink.cmp").get_lsp_capabilities()

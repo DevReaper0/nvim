@@ -55,6 +55,7 @@ return {
       end,
       rust = { "rustfmt" },
       c = { "clang_format" },
+      java = { lsp_format = "last" },
       bash = { "shfmt", "shellcheck" },
       zsh = { "shfmt", "shellcheck" },
       sh = { "shfmt", "shellcheck" },
@@ -81,6 +82,9 @@ return {
         -- HTML support in Biome isn't ready yet.
         --return { first(bufnr, "biome", "prettierd", "prettier") }
         return { first(bufnr, "prettierd", "prettier") }
+      end,
+      svg = function(bufnr)
+        return { first(bufnr, "biome") }
       end,
       json = function(bufnr)
         return { first(bufnr, "biome", "prettierd", "prettier", "jsonlint") }
@@ -119,7 +123,7 @@ return {
       if bufname:match("/node_modules/") then
         return
       end
-      return { timeout_ms = 500, lsp_format = "fallback" }
+      return { timeout_ms = 500 }
     end,
   },
 }
